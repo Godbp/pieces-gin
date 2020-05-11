@@ -1,0 +1,27 @@
+debug: true
+
+client:
+  host: "0.0.0.0"
+  port: "9000"
+
+redis:
+  host: "116.62.60.136"
+  port: "6379"
+  password: "56grTbvMYaOQ"
+  db: 0
+
+mysql:
+  host: "116.62.60.136"
+  port: "3306"
+  password: "123456"
+  user: "root"
+  db_name: ""
+  conns: ""
+  debug: true
+
+apiurl:
+  url: ""
+
+RedisKeyType:
+  token: "GIN:LOCAL:TOKEN"
+  request: "GIN:REQUEST"
