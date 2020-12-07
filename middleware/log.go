@@ -3,8 +3,8 @@ package middleware
 import (
 	"bytes"
 	"github.com/gin-gonic/gin"
+	"github.com/godbp/piece-gin-src/log"
 	uuid "github.com/satori/go.uuid"
-	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"net/http"
 )
@@ -19,10 +19,10 @@ func Params() gin.HandlerFunc {
 			ctx.Writer.Header().Set("X-Request-Id", reqID)
 		}
 		if ctx.Request.Method == http.MethodGet {
-			logrus.Infof("接口:[%s] method:[%s] params:[%s]", ctx.Request.URL, ctx.Request.Method, ctx.Request.PostForm)
+			log.InfoWithContext(ctx, "接口:[%s] method:[%s] params:[%s]", ctx.Request.URL, ctx.Request.Method, ctx.Request.PostForm)
 		} else {
 			data, _ := ioutil.ReadAll(ctx.Request.Body)
-			logrus.Infof("接口:[%s] method:[%s] params:[%s]", ctx.Request.URL, ctx.Request.Method, string(data))
+			log.InfoWithContext(ctx, "接口:[%s] method:[%s] params:[%s]", ctx.Request.URL, ctx.Request.Method, string(data))
 			ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(data))
 		}
 		ctx.Next()
