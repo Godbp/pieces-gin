@@ -16,7 +16,7 @@ mysql:
   password: "123456"
   user: "root"
   db_name: ""
-  conns: ""
+  conns: 0
   debug: true
 
 apiurl:
